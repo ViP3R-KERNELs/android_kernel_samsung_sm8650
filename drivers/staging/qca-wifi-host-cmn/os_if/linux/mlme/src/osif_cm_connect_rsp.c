@@ -713,7 +713,9 @@ osif_free_ml_link_params(struct cfg80211_connect_resp_params *conn_rsp_params)
 }
 #endif
 
-#ifdef CFG80211_SINGLE_NETDEV_MULTI_LINK_SUPPORT
+#if defined(CFG80211_SINGLE_NETDEV_MULTI_LINK_SUPPORT) || \
+    (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 1, 0))
+
 static
 void osif_copy_connected_info(struct cfg80211_connect_resp_params *conn_rsp,
 			      struct wlan_cm_connect_resp *rsp,
