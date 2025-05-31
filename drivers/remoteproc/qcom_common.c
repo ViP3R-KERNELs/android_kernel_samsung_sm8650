@@ -370,6 +370,36 @@ out:
 	return info;
 }
 
+void *qcom_register_early_ssr_notifier(const char *name, struct notifier_block *nb)
+{
+	struct qcom_ssr_subsystem *info;
+
+	info = qcom_ssr_get_subsys(name);
+	if (IS_ERR(info))
+		return info;
+
+	srcu_notifier_chain_register(&info->early_notifier_list, nb);
+
+	return &info->early_notifier_list;
+}
+EXPORT_SYMBOL(qcom_register_early_ssr_notifier);
+
+int qcom_unregister_early_ssr_notifier(void *notify, struct notifier_block *nb)
+{
+	return srcu_notifier_chain_unregister(notify, nb);
+}
+EXPORT_SYMBOL(qcom_unregister_early_ssr_notifier);
+
+void qcom_notify_early_ssr_clients(struct rproc_subdev *subdev)
+{
+	struct qcom_rproc_ssr *ssr = to_ssr_subdev(subdev);
+
+	trace_rproc_qcom_event(ssr->info->name, SSR_SUBDEV_NAME, "early notification");
+
+	srcu_notifier_call_chain(&ssr->info->early_notifier_list, QCOM_SSR_BEFORE_SHUTDOWN, NULL);
+}
+EXPORT_SYMBOL(qcom_notify_early_ssr_clients);
+
 /**
  * qcom_register_ssr_notifier() - register SSR notification handler
  * @name:	Subsystem's SSR name
