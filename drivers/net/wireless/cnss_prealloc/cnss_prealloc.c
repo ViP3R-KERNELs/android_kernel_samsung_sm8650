@@ -12,9 +12,7 @@
 #include <linux/of.h>
 #include <linux/version.h>
 #include "cnss_common.h"
-#include "cnss_prealloc.h"
 #include <net/cnss_prealloc.h>
-#endif
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 17, 0))
 /* Ideally header should be from standard include path. So this is not an
  * ideal way of header inclusion but use of slab struct to derive cache
