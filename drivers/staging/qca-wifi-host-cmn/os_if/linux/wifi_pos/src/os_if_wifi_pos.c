@@ -35,11 +35,7 @@
 #include "wlan_objmgr_psoc_obj.h"
 #include "wlan_osif_priv.h"
 #ifdef CNSS_GENL
-#ifdef CONFIG_CNSS_OUT_OF_TREE
-#include "cnss_nl.h"
-#else
 #include <net/cnss_nl.h>
-#endif
 #include "linux/genetlink.h"
 #include "wifi_pos_utils_pub.h"
 #endif

@@ -37,11 +37,7 @@
 #include <qdf_list.h>
 
 #ifdef CNSS_MEM_PRE_ALLOC
-#ifdef CONFIG_CNSS_OUT_OF_TREE
-#include "cnss_prealloc.h"
-#else
 #include <net/cnss_prealloc.h>
-#endif
 #endif
 
 #if defined(MEMORY_DEBUG) || defined(NBUF_MEMORY_DEBUG)

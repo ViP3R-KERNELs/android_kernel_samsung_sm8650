@@ -17,11 +17,7 @@
 #ifndef _I_QDF_SSR_DRIVER_DUMP_H_
 #define _I_QDF_SSR_DRIVER_DUMP_H_
 
-#ifdef CONFIG_CNSS_OUT_OF_TREE
-#include "cnss2.h"
-#else
 #include <net/cnss2.h>
-#endif
 
 typedef struct cnss_ssr_driver_dump_entry __qdf_ssr_driver_dump_entry;
 

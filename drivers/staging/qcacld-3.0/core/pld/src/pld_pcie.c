@@ -24,11 +24,7 @@
 #include <linux/slab.h>
 
 #ifdef CONFIG_PLD_PCIE_CNSS
-#ifdef CONFIG_CNSS_OUT_OF_TREE
-#include "cnss2.h"
-#else
 #include <net/cnss2.h>
-#endif
 #endif
 
 #include "pld_internal.h"

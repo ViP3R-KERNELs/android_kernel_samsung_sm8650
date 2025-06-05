@@ -30,21 +30,16 @@
 #include <net/cnss.h>
 #endif
 #ifdef CONFIG_PLD_PCIE_CNSS
-#ifdef CONFIG_CNSS_OUT_OF_TREE
-#include "cnss2.h"
-#else
 #include <net/cnss2.h>
 #endif
-#endif
 
-#ifdef CONFIG_CNSS_OUT_OF_TREE
 #ifdef CONFIG_PLD_SNOC_ICNSS
 #ifdef CONFIG_PLD_SNOC_ICNSS2
-#include "icnss2.h"
+#include <net/icnss2.h>
 #else
-#include "icnss.h"
+#include <net/icnss.h>
 #endif
-#endif
+
 #ifdef CONFIG_PLD_IPCI_ICNSS
 #include "icnss2.h"
 #endif

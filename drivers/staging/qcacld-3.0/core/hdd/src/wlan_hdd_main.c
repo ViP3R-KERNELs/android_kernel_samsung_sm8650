@@ -89,13 +89,8 @@
 #include <linux/suspend.h>
 
 #if defined (SEC_READ_MACADDR_SYSFS) || defined (SEC_WRITE_VERSION_IN_SYSFS) || defined (SEC_WRITE_SOFTAP_INFO_IN_SYSFS) || defined (SEC_CONFIG_PSM_SYSFS)
-#if defined(CONFIG_CNSS_OUT_OF_TREE)
-#include "cnss2.h"
-#include "cnss_nl.h"
-#else
 #include <net/cnss2.h>
 #include <net/cnss_nl.h>
-#endif
 #endif
 
 #ifdef WLAN_FEATURE_DP_BUS_BANDWIDTH
@@ -182,11 +177,7 @@
 #include "sme_api.h"
 
 #ifdef CNSS_GENL
-#ifdef CONFIG_CNSS_OUT_OF_TREE
-#include "cnss_nl.h"
-#else
 #include <net/cnss_nl.h>
-#endif
 #endif
 #include "wlan_reg_ucfg_api.h"
 #include "wlan_ocb_ucfg_api.h"
