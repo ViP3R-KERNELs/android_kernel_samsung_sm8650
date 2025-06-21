@@ -494,6 +494,16 @@ config VIRTIO_IOMMU
 
 	  Say Y here if you intend to run this kernel as a guest.
 
+config QCOM_IOMMU_UTIL
+	tristate "Support for qcom additions to the iommu framework"
+	help
+	  QCOM iommu drivers support a general set of functionality in
+	  addition to the functions provided by the iommu framework.
+	  This includes devicetree properties for configuring iommu
+	  groups and iova ranges.
+
+	  Say N here if unsure.
+
 config SPRD_IOMMU
 	tristate "Unisoc IOMMU Support"
 	depends on ARCH_SPRD || COMPILE_TEST
@@ -505,5 +515,15 @@ config SPRD_IOMMU
 	  ISP(image), and CPP(camera pixel processor), etc.
 
 	  Say Y here if you want to use the multimedia devices listed above.
+
+config QCOM_IOMMU_DEBUG
+	tristate "IOMMU debugging and testing"
+	depends on QCOM_IOMMU_UTIL
+	depends on DEBUG_FS
+	help
+	  This option is used to enable profiling and debugging in
+	  the IOMMU framework code. IOMMU profiling and debugging
+	  can be done through the debugfs nodes which this option
+	  makes available.
 
 endif # IOMMU_SUPPORT
