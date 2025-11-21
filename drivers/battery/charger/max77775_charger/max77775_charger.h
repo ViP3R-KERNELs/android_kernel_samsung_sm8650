@@ -389,6 +389,7 @@ struct max77775_charger_data {
 	/* mutex */
 	struct mutex            charger_mutex;
 	struct mutex            mode_mutex;
+	struct mutex            insel_mutex;
 	struct mutex            icl_mutex;
 	struct mutex            irq_aicl_mutex;
 
